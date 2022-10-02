@@ -1,0 +1,64 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+</head>
+
+<title>{% block title %}{% endblock %} - RODI - Milano Road Network Monitor</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <a href="/index">
+    <img alt="rodi-logo"src="{{url_for('static', filename='RODI4.png')}}" width="50" height="50">
+  </a>
+  <h1>&nbsp;</h1>
+
+    {% if (ad==1) %}
+      <h1>Welcome {{ g.user[1] }}!</h1>
+      <ul>
+      <li><a href="/logout">Log Out</a></li>
+      <li><a href="/dash">Dashboard</a></li>
+      <li><a href="/all_requests">Status</a></li>
+      </ul>
+      
+    {% elif (ad==2) %}
+      <h1>Welcome {{ g.user[1] }}!</h1> 
+      <ul>
+      <li><a href="/logout">Log Out</a></li>
+      <li><a href="/dash">Dashboard</a></li>
+      <li><a href="/all_requests">Status</a></li>
+      <li><a href="/admin-register">Special registration</a></li>
+      </ul>
+      
+    {% elif (g.user) and (ad==0) %}
+      <h1>Welcome {{ g.user[1] }}!</h1>
+      <ul>
+      <li><a href="/logout">Log Out</a></li>
+      <li><a href="/map">Map</a></li>
+      <li><a href="/user_requests">My requests</a></li>
+      <a href="https://five.epicollect.net/project/mrnm">
+         <img alt="ep5"  src="{{url_for('static', filename='epicollect-icon.png')}}" width="35" height="35">
+      </a>
+      </ul>
+    {% else %}
+  <ul>      
+      <li><a href="/register">Register</a></li>
+      <li><a href="/login">Log In</a></li>
+      <li><a href="/admin-request">Specialized user request</a></li>
+      <li><a href="/map">Map</a></li>
+
+    {% endif %}
+  </ul>
+</nav>
+      <hr>
+<section class = "content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class = "flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>

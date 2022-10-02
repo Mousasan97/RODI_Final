@@ -1,0 +1,9 @@
+{% extends "map.html" %}
+{% block title %} RODI - Milano Road Network Monitor {% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block body %}
+<center>
+<h3 style="color:white; padding:10px; margin: 0; font-family: Calibri; background:rgb(17,17,17);">User's uploaded distresses - Milan map</h3>
+</center>
+    {% include "tmp/map_outp.html" %}
+{% endblock %}

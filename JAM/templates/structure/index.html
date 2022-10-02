@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  {% if (g.user) and (ad!=1) and (ad!=2) %}
+
+    <div class="container">  
+        <img src="https://www8.gsb.columbia.edu/articles/sites/articles/files/article_detailedimage/iStock-614703824.jpg" alt="Image of road network" style="width:100%;">
+        <div class="centered">
+            <h1>Welcome to RODI - Milano Road Network Monitor</h1>
+            <p>Add a new road maintenance request through Epicollect5 or check your uploaded requests</p>
+        </div>
+    </div> 
+    {% elif (ad==1) or (ad==2) %}
+    
+    <div class="container"> 
+        <img src="https://www8.gsb.columbia.edu/articles/sites/articles/files/article_detailedimage/iStock-614703824.jpg" alt="Image of road network" style="width:100%;">
+        <div class="centered">
+            <h1>Welcome to RODI - Milano Road Network Monitor</h1>
+            <p>The main objective of this platform is offer to the citizenship of Milano the possibility to collaborate in the detection of road network distresses</p>
+        </div>
+    </div> 
+
+    {% else %}
+
+    <div class="container">
+        <img src="https://www8.gsb.columbia.edu/articles/sites/articles/files/article_detailedimage/iStock-614703824.jpg" alt="Image of road network" style="width:100%;">    
+        <div class="centered">
+            <h1>Welcome to RODI - Milano Road Network Monitor</h1>
+            <p>The main objective of this platform is offer to the citizenship of Milano the possibility to collaborate in the detection of road network distresses</p>
+        </div>
+    </div>
+
+  {% endif %}
+{% endblock %}
+
+<style>
+
+.container {
+  position: relative;
+  max-width: 800px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+
+.container .content {
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 20px; /* Some padding */
+}
+
+</style>

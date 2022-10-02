@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 style="background-color: #D9D7D6;">{% block title %}All Requests{% endblock %}</h1>
+
+
+{% endblock %}
+
+{% block content %}
+  {% for entry in ep5 %}
+  
+  
+    <article class="post">
+          <header>
+          <div>
+
+
+
+          <h1>{{ entry[6] }}</h1>
+          <h2 style="color:grey;">{{entry[20]}}</h2>
+          <div class = "about"> {{ entry[4]}} | {{ entry[5]}}| {{ entry[8]}}| {{ entry[9]}}| {{ entry[10]}} | {{ entry[11]}}</div>
+            <br>
+             <td >
+              <form action="{{ url_for('flip') }}" method="post" >
+                  <input type="hidden" name="flip" value="{{ entry[3] }}"/>
+                  <input type="submit" class="btn btn-xs btn-danger" value="Change" style="background-color:#2E4053"/>
+              </form>
+          </td>      
+        </div>
+        <img src={{ entry[7] }} alt="Request of user" width="150" height="150">
+ 
+      </header>
+    {% if not loop.last %}
+    </article>
+        {% if not loop.last %}
+    {% endif %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

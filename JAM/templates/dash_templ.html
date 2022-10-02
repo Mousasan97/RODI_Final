@@ -1,0 +1,31 @@
+{% extends "map.html" %}
+<head>
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="w3-bar w3-black">
+
+  <a href="/index">
+    <img alt="rodi-logo"src="{{url_for('static', filename='RODI4.png')}}" width="50" height="50">
+  </a>
+
+</div>
+
+{% block head %} {{ super() }} {% endblock %}
+
+{% block body %} 
+<center>
+<h1 style="color:white; padding:10px; margin: 0; font-family: Calibri; background:rgb(17,17,17);">Dashboard</h1>
+</center>
+    {% include "tmp/req_day_plot.html" %}
+    {% include "tmp/user_req_plot.html" %}
+    {% include "tmp/scatter_clustering.html" %}
+    {% include "tmp/bar_size.html" %}
+    {% include "tmp/bar_kind_of_distr.html" %}
+    {% include "tmp/bar_risk.html" %}
+    {% include "tmp/bar_material.html" %}
+{% endblock %}
