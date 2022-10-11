@@ -1,3 +1,6 @@
+RODI is a web application and a Roads Network Maintenance System, which is an application to be used in the first case as a starting point for the authorities in the Ministry of Transportation and the responsible bodies in Milano to organize and facilitate the process of fixing the Pavement Distresses in the streets which is a widespread phenomenon in Milano.
+The application was designed using mainly Flask micro framework.
+
 <h1>RODI is ready for the action...</h1>
 
 ![image](https://user-images.githubusercontent.com/82569748/120941993-20ecb300-c726-11eb-9268-66b0c4c2abeb.png)
